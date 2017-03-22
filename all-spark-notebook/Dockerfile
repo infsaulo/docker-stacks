@@ -1,8 +1,8 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
-FROM jupyter/pyspark-notebook
+FROM sauloricci/notebook
 
-MAINTAINER Jupyter Project <jupyter@googlegroups.com>
+MAINTAINER Saulo Ricci <infsaulok@gmail.com>
 
 USER root
 
