@@ -33,5 +33,7 @@ RUN cd ${SPARK_HOME}/jars && \
     wget -q http://central.maven.org/maven2/com/microsoft/azure/azure-storage/3.1.0/azure-storage-3.1.0.jar && \
     wget -q http://central.maven.org/maven2/org/apache/hadoop/hadoop-azure/2.7.2/hadoop-azure-2.7.2.jar && \
     wget -q https://jdbc.postgresql.org/download/postgresql-42.0.0.jar && \
-    wget -q http://dl.bintray.com/spark-packages/maven/graphframes/graphframes/0.5.0-spark2.1-s_2.10/graphframes-0.5.0-spark2.1-s_2.10.jar
+    wget -q http://dl.bintray.com/spark-packages/maven/graphframes/graphframes/0.5.0-spark2.1-s_2.11/graphframes-0.5.0-spark2.1-s_2.11.jar && \
+    wget -q http://central.maven.org/maven2/com/typesafe/scala-logging/scala-logging-slf4j_2.11/2.1.2/scala-logging-slf4j_2.11-2.1.2.jar && \
+    wget -q http://central.maven.org/maven2/com/typesafe/scala-logging/scala-logging-api_2.11/2.1.2/scala-logging-api_2.11-2.1.2.jar
 USER $NB_USER
