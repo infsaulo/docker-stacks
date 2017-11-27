@@ -2,7 +2,7 @@
 # Distributed under the terms of the Modified BSD License.
 FROM jupyter/minimal-notebook
 
-MAINTAINER Jupyter Project <jupyter@googlegroups.com>
+MAINTAINER Saulo Ricci <infsaulok@gmail.com>
 
 USER root
 
@@ -17,6 +17,7 @@ USER $NB_USER
 # Install Python 3 packages
 # Remove pyqt and qt pulled in for matplotlib since we're only ever going to
 # use notebook-friendly backends in these images
+RUN pip install pydocumentdb
 RUN conda install --quiet --yes \
     'nomkl' \
     'ipywidgets=5.2*' \
@@ -72,6 +73,7 @@ RUN conda create --quiet --yes -p $CONDA_DIR/envs/python2 python=2.7 \
     'hdf5=1.8.17' \
     'h5py=2.6*' \
     'sqlalchemy=1.0*' \
+    'pydocumentdb=2.0.1' \
     'pyzmq' \
     'vincent=0.4.*' \
     'beautifulsoup4=4.5.*' \
