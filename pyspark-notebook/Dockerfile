@@ -28,7 +28,7 @@ RUN cd /usr/local && ln -s spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERS
 ENV SPARK_HOME /usr/local/spark
 ADD ./graphframes.zip ${SPARK_HOME}/python/lib/graphframes.zip
 ENV PYTHONPATH $SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.4-src.zip:$SPARK_HOME/python/lib/graphframes.zip
-ENV SPARK_OPTS --driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M --driver-java-options=-Dlog4j.logLevel=info --jars https://jdbc.postgresql.org/download/postgresql-42.0.0.jar,http://dl.bintray.com/spark-packages/maven/graphframes/graphframes/0.5.0-spark2.1-s_2.11/graphframes-0.5.0-spark2.1-s_2.11.jar --driver-class-path https://jdbc.postgresql.org/download/postgresql-42.0.0.jar:http://dl.bintray.com/spark-packages/maven/graphframes/graphframes/0.5.0-spark2.1-s_2.11/graphframes-0.5.0-spark2.1-s_2.11.jar
+ENV SPARK_OPTS --driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M --driver-java-options=-Dlog4j.logLevel=info --jars https://jdbc.postgresql.org/download/postgresql-42.0.0.jar,http://dl.bintray.com/spark-packages/maven/graphframes/graphframes/0.5.0-spark2.1-s_2.11/graphframes-0.5.0-spark2.1-s_2.11.jar,http://central.maven.org/maven2/net/sansa-stack/sansa-rdf-spark-core_2.11/0.2.0/sansa-rdf-spark-core_2.11-0.2.0.jar --driver-class-path https://jdbc.postgresql.org/download/postgresql-42.0.0.jar:http://dl.bintray.com/spark-packages/maven/graphframes/graphframes/0.5.0-spark2.1-s_2.11/graphframes-0.5.0-spark2.1-s_2.11.jar:http://central.maven.org/maven2/net/sansa-stack/sansa-rdf-spark-core_2.11/0.2.0/sansa-rdf-spark-core_2.11-0.2.0.jar
 
 RUN cd ${SPARK_HOME}/jars && \
     wget -q http://central.maven.org/maven2/com/microsoft/azure/azure-storage/3.1.0/azure-storage-3.1.0.jar && \
@@ -36,5 +36,6 @@ RUN cd ${SPARK_HOME}/jars && \
     wget -q https://jdbc.postgresql.org/download/postgresql-42.0.0.jar && \
     wget -q http://dl.bintray.com/spark-packages/maven/graphframes/graphframes/0.5.0-spark2.1-s_2.11/graphframes-0.5.0-spark2.1-s_2.11.jar && \
     wget -q http://central.maven.org/maven2/com/typesafe/scala-logging/scala-logging-slf4j_2.11/2.1.2/scala-logging-slf4j_2.11-2.1.2.jar && \
-    wget -q http://central.maven.org/maven2/com/typesafe/scala-logging/scala-logging-api_2.11/2.1.2/scala-logging-api_2.11-2.1.2.jar
+    wget -q http://central.maven.org/maven2/com/typesafe/scala-logging/scala-logging-api_2.11/2.1.2/scala-logging-api_2.11-2.1.2.jar && \
+    wget -q http://central.maven.org/maven2/net/sansa-stack/sansa-rdf-spark-core_2.11/0.2.0/sansa-rdf-spark-core_2.11-0.2.0.jar 
 USER $NB_USER
